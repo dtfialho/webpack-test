@@ -1,0 +1,16 @@
+body {
+	background-color: #f00;
+}
+
+div {
+	box-sizing: border-box;
+}
+
+.content {
+	width: 1070px;
+	margin: 0 auto;
+
+	&-full {
+		width: 100%;
+	}
+}
