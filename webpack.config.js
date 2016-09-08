@@ -26,6 +26,14 @@ module.exports = {
 				test: /\.js$/,
 				loader: 'ng-annotate!babel?presets[]=es2015!jshint',
 				exclude: /node_modules|bower_components/
+			},
+			{
+				test: /\.css$/,
+				loader: "style!css"
+			},
+			{
+				test: /\.(woff|woff2|ttf|eot|svg)(\?]?.*)?$/,
+				loader : 'file-loader?name=res/[name].[ext]?[hash]'
 			}
 		]
 	}
