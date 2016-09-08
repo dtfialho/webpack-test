@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ef358c776063fddbdbf0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "22687c70a6fb6dae1a4a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -60924,11 +60924,121 @@
 
 /***/ },
 /* 105 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = angular.module('app', ['lumx']);
+	var _layout = __webpack_require__(106);
+
+	var _layout2 = _interopRequireDefault(_layout);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	module.exports = angular.module('app', ['lumx', _layout2.default.name]);
+
+/***/ },
+/* 106 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _nav = __webpack_require__(107);
+
+	var _nav2 = _interopRequireDefault(_nav);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = angular.module('app.layout', []).directive('lumxNavbar', _nav2.default);
+
+/***/ },
+/* 107 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var NavCtrl = function NavCtrl() {
+		_classCallCheck(this, NavCtrl);
+
+		this.app = {
+			title: 'Module Loaders',
+			version: '0.3.0',
+			links: [{
+				text: 'Webpack',
+				link: 'http://webpack.github.io'
+			}, {
+				text: 'Require.js',
+				link: 'http://requirejs.org/'
+			}, {
+				text: 'Jspm',
+				link: 'http://jspm.io/'
+			}]
+		};
+	};
+
+	exports.default = function () {
+		__webpack_require__(108); // load styles for the component
+		return {
+			controller: NavCtrl,
+			controllerAs: 'nav',
+			template: __webpack_require__(110)
+		};
+	};
+
+/***/ },
+/* 108 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(109);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(96)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(true) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept(109, function() {
+				var newContent = __webpack_require__(109);
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 109 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(95)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".header {\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 999;\n  height: 60px;\n  padding: 12px;\n  color: white;\n  background-color: #4fc1e9;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 110 */
+/***/ function(module, exports) {
+
+	module.exports = "<header class=\"header bgc-light-blue-600\" ng-cloak>  \r\n\t<!-- Get the app info and put it in the navbar on the left -->  \r\n\t<h1 class=\"main-logo\">\r\n\t\t<a href=\"/\" class=\"main-logo__link\" lx-ripple=\"white\">\r\n\t\t\t<span class=\"main-nav--title\">{{::nav.app.title}} </span>\r\n\t\t\t<span class=\"main-nav--version\">v{{::nav.app.version}}</span>\r\n\t\t</a>\r\n\t</h1>\r\n\t<!-- Loop over the links and add them to the navbar on the right -->  \r\n\t<nav class=\"main-nav main-nav--lap-and-up\">\r\n\t\t<ul>\r\n\t\t\t<li ng-repeat=\"n in nav.app.links\">\r\n\t\t\t\t<a href=\"{{::n.link}}\" class=\"main-nav__link\" lx-ripple=\"white\">\r\n\t\t\t\t{{::n.text}}</a>\r\n\t\t\t</li>\r\n\t\t</ul>\r\n\t</nav>\r\n</header> "
 
 /***/ }
 /******/ ]);
