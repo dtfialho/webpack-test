@@ -4,7 +4,7 @@ var webpack = require('webpack')
 const APP = __dirname;
 
 module.exports = {
-	context: APP + '/app',
+	context: path.join(APP, 'app'),
 	entry: {
 		app: './app.js',
 		vendor: ['angular']
