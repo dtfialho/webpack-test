@@ -10,7 +10,7 @@ module.exports = {
 		vendor: ['angular']
 	},
 	output: {
-		path: APP + '/js',
+		path: path.join(APP, 'js'),
 		filename: 'app.bundle.js'
 	},
 	plugins: [
