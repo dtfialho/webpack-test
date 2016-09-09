@@ -7,14 +7,15 @@ var APP = path.join(__dirname, 'app');
 module.exports = {
 	context: APP,
 	entry: {
-		app: ['webpack/hot/dev-server', './core/bootstrap.js']
+		app: './core/bootstrap.js'
 	},
 	output: {
 		path: APP,
 		filename: 'bundle.js'
 	},
 	plugins: [
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
+		new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false}})
 	],
 	module: {
 		loaders: [
