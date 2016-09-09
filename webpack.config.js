@@ -38,7 +38,14 @@ module.exports = {
 			{
 				test: /\.html/,
 				loader: 'raw'
+			},
+			{
+				test: /\.json/,
+				loader: 'json'
 			}
 		]
+	},
+	resolve: {
+		root: path.join(__dirname, 'app')
 	}
 };

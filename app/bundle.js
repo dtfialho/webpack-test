@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "22687c70a6fb6dae1a4a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "93431a2b8118070e970d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -60969,39 +60969,49 @@
 	var NavCtrl = function NavCtrl() {
 		_classCallCheck(this, NavCtrl);
 
-		this.app = {
-			title: 'Module Loaders',
-			version: '0.3.0',
-			links: [{
-				text: 'Webpack',
-				link: 'http://webpack.github.io'
-			}, {
-				text: 'Require.js',
-				link: 'http://requirejs.org/'
-			}, {
-				text: 'Jspm',
-				link: 'http://jspm.io/'
-			}]
-		};
+		this.app = __webpack_require__(108);
 	};
 
 	exports.default = function () {
-		__webpack_require__(108); // load styles for the component
+		__webpack_require__(109); // load styles for the component
 		return {
 			controller: NavCtrl,
 			controllerAs: 'nav',
-			template: __webpack_require__(110)
+			template: __webpack_require__(111)
 		};
 	};
 
 /***/ },
 /* 108 */
+/***/ function(module, exports) {
+
+	module.exports = {
+		"title": "Module Loaders",
+		"version": "0.3.0",
+		"links": [
+			{
+				"text": "Webpack",
+				"link": "http://webpack.github.io"
+			},
+			{
+				"text": "Require.js",
+				"link": "http://requirejs.org/"
+			},
+			{
+				"text": "Jspm",
+				"link": "http://jspm.io/"
+			}
+		]
+	};
+
+/***/ },
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(109);
+	var content = __webpack_require__(110);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(96)(content, {});
@@ -61010,8 +61020,8 @@
 	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept(109, function() {
-				var newContent = __webpack_require__(109);
+			module.hot.accept(110, function() {
+				var newContent = __webpack_require__(110);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -61021,7 +61031,7 @@
 	}
 
 /***/ },
-/* 109 */
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(95)();
@@ -61035,7 +61045,7 @@
 
 
 /***/ },
-/* 110 */
+/* 111 */
 /***/ function(module, exports) {
 
 	module.exports = "<header class=\"header bgc-light-blue-600\" ng-cloak>  \r\n\t<!-- Get the app info and put it in the navbar on the left -->  \r\n\t<h1 class=\"main-logo\">\r\n\t\t<a href=\"/\" class=\"main-logo__link\" lx-ripple=\"white\">\r\n\t\t\t<span class=\"main-nav--title\">{{::nav.app.title}} </span>\r\n\t\t\t<span class=\"main-nav--version\">v{{::nav.app.version}}</span>\r\n\t\t</a>\r\n\t</h1>\r\n\t<!-- Loop over the links and add them to the navbar on the right -->  \r\n\t<nav class=\"main-nav main-nav--lap-and-up\">\r\n\t\t<ul>\r\n\t\t\t<li ng-repeat=\"n in nav.app.links\">\r\n\t\t\t\t<a href=\"{{::n.link}}\" class=\"main-nav__link\" lx-ripple=\"white\">\r\n\t\t\t\t{{::n.text}}</a>\r\n\t\t\t</li>\r\n\t\t</ul>\r\n\t</nav>\r\n</header> "
